@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Why Learners Stay</title>
+<meta name="description" content="What 76 public Speexx reviews say about why learners keep going, where they get stuck, and five messages to test along the learner journey. Independent case study by Sana Ahmad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#ff7900; --orange-dark:#d96600; --orange-soft:#fff2e6;
+  --blue:#446cb3; --blue-soft:#ecf1f9;
+  --green:#3f9a57; --green-soft:#eaf6ee;
+  --ink:#1b1b1b; --body:#3c3c3c; --muted:#6e6e6e; --line:#e3e3e3; --alt:#f7f7f7; --bg:#ffffff;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--body);font:17px/1.6 Roboto,Arial,Helvetica,sans-serif;font-weight:300;padding-inline:20px}
+.wrap{max-width:1040px;margin:0 auto}
+h1,h2,h3{color:var(--ink);margin:0;line-height:1.12;text-wrap:balance}
+h1{font-weight:300;font-size:clamp(36px,6.4vw,64px);letter-spacing:-1px}
+h1 em{font-style:normal;color:var(--orange)}
+h2{font-weight:300;font-size:clamp(28px,4.4vw,44px);letter-spacing:-.5px;margin-top:6px}
+h3{font-weight:500;font-size:20px}
+p{margin:0}
+b,strong{font-weight:500;color:var(--ink)}
+.kicker{font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+section{padding-block:72px;border-top:1px solid var(--line)}
+section.first{border-top:0;padding-top:56px}
+.lede{font-size:20px;margin-top:18px;max-width:60ch}
+.label{display:inline-block;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;background:var(--alt);color:var(--muted)}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-block:18px;border-bottom:1px solid var(--line);font-size:14px}
+.bar .who{color:var(--ink);font-weight:500}
+.bar .indep{color:var(--muted)}
+
+/* summary */
+.short{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:40px;border:1px solid var(--line)}
+.short div{padding:22px;min-width:0}
+.short div+div{border-left:1px solid var(--line)}
+.short .n{font-size:44px;font-weight:300;color:var(--orange);line-height:1;font-variant-numeric:tabular-nums}
+.short h3{margin-top:10px;font-size:18px}
+.short p{margin-top:6px;font-size:15px}
+.cta{display:inline-block;margin-top:28px;background:var(--orange);color:#fff;text-decoration:none;font-weight:500;padding:14px 26px;font-size:16px}
+.cta:hover{background:var(--orange-dark)}
+
+/* quotes */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:36px}
+.col{min-width:0}
+.col h3{margin-top:12px}
+.col p.d{margin-top:6px;font-size:16px}
+blockquote{margin:14px 0 0;padding:0 0 0 14px;border-left:3px solid var(--orange);font-size:16px;color:var(--ink);font-weight:400}
+blockquote cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:4px;font-weight:300}
+.stuck blockquote{border-left-color:var(--blue)}
+.note{margin-top:32px;background:var(--alt);padding:18px 22px;font-size:15px;max-width:76ch}
+
+/* journey */
+.journey{margin-top:36px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));position:relative}
+.journey::before{content:"";position:absolute;left:4%;right:4%;top:19px;height:2px;background:var(--line)}
+.step{position:relative;background:none;border:0;padding:0 4px;text-align:center;font:inherit;color:var(--muted);cursor:default}
+.step .dot{width:40px;height:40px;margin:0 auto;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-size:14px;font-weight:500;color:var(--muted);position:relative;z-index:1}
+.step .t{display:block;margin-top:10px;font-size:13px;line-height:1.3}
+.step.has{cursor:pointer;color:var(--ink)}
+.step.has .dot{border-color:var(--orange);color:var(--orange)}
+.step.has:hover .dot{background:var(--orange-soft)}
+.step[aria-pressed="true"] .dot{background:var(--orange);color:#fff;border-color:var(--orange)}
+.step[aria-pressed="true"] .t{font-weight:500}
+.legend{margin-top:14px;font-size:13px;color:var(--muted)}
+
+.stage{display:grid;grid-template-columns:320px 1fr;gap:44px;margin-top:40px;align-items:start}
+.device{background:#1b1b1b;padding:10px;border-radius:30px;max-width:320px;width:100%;margin-inline:auto}
+.screen{background:linear-gradient(170deg,#3a4a66,#1f2638);border-radius:22px;min-height:420px;padding:44px 14px 20px;position:relative;color:#fff;overflow:hidden}
+.clock{position:absolute;top:14px;left:0;right:0;text-align:center;font-size:12px;opacity:.8}
+.notif{background:rgba(255,255,255,.94);color:var(--ink);border-radius:14px;padding:12px 14px;margin-top:70px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.notif .app{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.notif .ic{width:18px;height:18px;background:var(--orange);border-radius:4px}
+.notif .ttl{font-weight:500;font-size:14px;margin-top:6px}
+.notif .msg{font-size:14px;margin-top:2px;line-height:1.4;font-weight:400}
+.mail{background:#fff;color:var(--ink);border-radius:14px;margin-top:20px;overflow:hidden;font-size:14px}
+.mail .hd{padding:12px 14px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.mail .hd b{display:block;font-size:14px;color:var(--ink);margin-top:2px}
+.mail .bd{padding:14px;line-height:1.5;font-weight:400}
+.mail .btn{display:inline-block;margin-top:12px;background:var(--orange);color:#fff;padding:9px 14px;font-weight:500;font-size:13px}
+.detail .when{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
+.detail h3{font-size:26px;font-weight:300;margin-top:6px}
+.detail .copy{margin-top:16px;font-size:19px;color:var(--ink);font-weight:400;background:var(--orange-soft);padding:16px 18px}
+.dl{display:grid;grid-template-columns:110px 1fr;gap:14px 18px;margin-top:22px;font-size:16px}
+.dl dt{font-weight:500;color:var(--ink)}
+.dl dd{margin:0}
+.dl blockquote{margin:0}
+.navbtns{display:flex;gap:10px;margin-top:26px}
+.navbtns button{font:inherit;font-size:14px;font-weight:500;padding:10px 18px;border:1px solid var(--orange);background:#fff;color:var(--orange);cursor:pointer}
+.navbtns button.p{background:var(--orange);color:#fff}
+
+/* next */
+.plan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:36px;border:1px solid var(--line)}
+.plan div{padding:24px;min-width:0}
+.plan div+div{border-left:1px solid var(--line)}
+.plan .w{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
+.plan h3{margin-top:8px;font-weight:300;font-size:24px}
+.plan p{margin-top:10px;font-size:15px}
+.plan ul{margin:12px 0 0;padding-left:18px;font-size:15px}
+.funnel{margin-top:28px;overflow-x:auto}
+.funnel table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+.funnel th,.funnel td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+.funnel th{font-weight:500;color:var(--ink);font-size:13px;letter-spacing:.04em;text-transform:uppercase;background:var(--alt)}
+.funnel td:first-child{font-weight:500;color:var(--ink)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.proof{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.proof li{padding-left:18px;position:relative;font-size:16px}
+.proof li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:8px;background:var(--orange)}
+.contact{margin-top:22px;font-size:16px}
+.contact a{color:var(--orange);font-weight:500}
+footer{border-top:1px solid var(--line);padding-block:28px 40px;font-size:13px;color:var(--muted)}
+footer a{color:var(--blue)}
+footer ul{padding-left:18px;margin:8px 0 12px}
+
+@media (max-width:860px){
+  .short,.plan{grid-template-columns:1fr}
+  .short div+div,.plan div+div{border-left:0;border-top:1px solid var(--line)}
+  .cols{grid-template-columns:1fr;gap:36px}
+  .stage{grid-template-columns:1fr;gap:28px}
+  .about{grid-template-columns:1fr}
+  .journey{grid-template-columns:repeat(7,88px);overflow-x:auto;padding-bottom:6px}
+  .journey::before{left:44px;right:auto;width:528px}
+}
+@media (max-width:480px){.dl{grid-template-columns:1fr;gap:4px}.dl dd{margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="bar"><span class="who">Sana Ahmad · Product Marketing</span><span class="indep">Independent case study. Not commissioned by or affiliated with Speexx.</span></div>
+
+<section class="first">
+  <div class="kicker">A case study for Speexx</div>
+  <h1>Why learners stay, where they get stuck, and <em>five messages</em> to test</h1>
+  <p class="lede">Your customer stories lead with usage: 16,000+ learning hours at Volkswagen in the first year, 4,500+ active users at Merck. So I looked at the learner side. I read 76 public reviews and wrote the first messages I'd test to get more learners started and coming back.</p>
+
+  <div class="short">
+    <div><div class="n">76</div><h3>Reviews read</h3><p>From Trustpilot, Capterra, Software Advice and G2, all quoted word for word.</p></div>
+    <div><div class="n">1</div><h3>Key insight</h3><p>Learners love the live sessions, but the first steps are where confidence breaks.</p></div>
+    <div><div class="n">5</div><h3>Messages to test</h3><p>Placed at the moments learners hesitate, each with one number to judge it by.</p></div>
+  </div>
+  <a class="cta" href="#journey">See the messages</a>
+</section>
+
+<section>
+  <div class="kicker">01 · What keeps learners going</div>
+  <h2>Flexibility, real people, and progress they feel at work</h2>
+  <div class="cols">
+    <div class="col">
+      <span class="label">Mentioned often</span>
+      <h3>Learning fits around the job</h3>
+      <blockquote>"Speexx offers a flexible and user-friendly learning environment, ideal for professionals with limited time."<cite>Capterra, March 2026</cite></blockquote>
+      <blockquote>"it offers great flexibility, allowing you to study at any free moment."<cite>Trustpilot, May 2025</cite></blockquote>
+    </div>
+    <div class="col">
+      <span class="label">Praised often</span>
+      <h3>Live sessions with teachers and peers</h3>
+      <blockquote>"I love the live sessions and all the different ways to improve my English."<cite>Trustpilot, June 2025</cite></blockquote>
+      <blockquote>"Great experience also to learn together with people from all over the world."<cite>Trustpilot, March 2025</cite></blockquote>
+    </div>
+    <div class="col">
+      <span class="label">How they describe success</span>
+      <h3>Progress shows up in work moments</h3>
+      <blockquote>"When I began, I could not follow a meeting in english or lead a workshop in english."<cite>Trustpilot, October 2025</cite></blockquote>
+      <blockquote>"They are very important for my work and my knowledge."<cite>Trustpilot, April 2025</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="stuck">
+  <div class="kicker">02 · Where learners get stuck</div>
+  <h2>The first steps are where confidence breaks</h2>
+  <div class="cols">
+    <div class="col">
+      <span class="label" style="background:var(--orange-soft);color:var(--orange-dark)">A messaging opportunity</span>
+      <h3>Starting feels risky</h3>
+      <blockquote>"But I didn't dare to do it the first few weeks and started quite late."<cite>Trustpilot, March 2025, about live sessions</cite></blockquote>
+      <blockquote>"The classification test in the beginning was not clear to me how to fill it out"<cite>Software Advice, July 2023</cite></blockquote>
+      <blockquote>"some people aren't confident and feel uncomfortable to practice"<cite>Trustpilot, April 2025</cite></blockquote>
+    </div>
+    <div class="col">
+      <span class="label">For the product team</span>
+      <h3>Booking and cancelling sessions</h3>
+      <blockquote>"There isn’t a clear way to notify the coach for last-minute cancellations, which can be inconvenient."<cite>Capterra, March 2026</cite></blockquote>
+      <blockquote>"canceling an online section scheduled with the teacher at least three hours in advance is a long time"<cite>Software Advice, September 2023</cite></blockquote>
+    </div>
+    <div class="col">
+      <span class="label">For the product team</span>
+      <h3>Content and audio details</h3>
+      <blockquote>"In some cases, the content can feel a bit repetitive or not very challenging,"<cite>Capterra, March 2026</cite></blockquote>
+      <blockquote>"it's often unclear in the labs whether English UK or English USA is used."<cite>Trustpilot, June 2025</cite></blockquote>
+      <blockquote>"Can you fix the microphone setting of the audio exercices?"<cite>G2 community post</cite></blockquote>
+    </div>
+  </div>
+  <p class="note"><b>Two honest notes.</b> Not every problem is a messaging problem, so booking, content and audio issues go to the product team, not into nudges. And these reviews skew positive: many were posted in batches, and people who quietly stop learning rarely write reviews. They show what keeps active learners going, not why silent ones leave. Section 04 covers how I'd find that out.</p>
+</section>
+
+<section id="journey">
+  <div class="kicker">03 · Five messages along the learner journey</div>
+  <h2>A message for every moment learners hesitate</h2>
+  <p class="lede">Tap a highlighted step to see the message as a learner would, why it should work, and how I'd measure it. Push notifications follow current guidance: a title under 40 characters and a one-line body, so they read in full even when collapsed. Anything longer goes by email. Each one runs as an A/B test against the current message.</p>
+
+  <div class="journey" role="group" aria-label="Learner journey">
+    <button class="step has" data-i="0"><span class="dot">1</span><span class="t">Invited</span></button>
+    <button class="step" disabled><span class="dot">·</span><span class="t">Level check done</span></button>
+    <button class="step has" data-i="1"><span class="dot">2</span><span class="t">First week</span></button>
+    <button class="step" disabled><span class="dot">·</span><span class="t">First live session</span></button>
+    <button class="step has" data-i="2"><span class="dot">3</span><span class="t">Week two</span></button>
+    <button class="step has" data-i="3"><span class="dot">4</span><span class="t">7 days quiet</span></button>
+    <button class="step has" data-i="4"><span class="dot">5</span><span class="t">21 days quiet</span></button>
+  </div>
+  <p class="legend">Orange steps have a message. Grey steps are milestones the messages aim for.</p>
+
+  <div class="stage">
+    <div class="device" aria-hidden="true"><div class="screen" id="screen"></div></div>
+    <div class="detail" aria-live="polite">
+      <div class="when" id="dWhen"></div>
+      <h3 id="dTitle"></h3>
+      <p class="copy" id="dCopy"></p>
+      <dl class="dl">
+        <dt>Why</dt><dd id="dWhy"></dd>
+        <dt>Evidence</dt><dd id="dEv"></dd>
+        <dt>Measure</dt><dd id="dMeasure"></dd>
+      </dl>
+      <div class="navbtns"><button id="prev">Previous</button><button class="p" id="next">Next message</button></div>
+    </div>
+  </div>
+  <p class="legend" style="margin-top:24px">Examples use English as the course language. Each message would be localized for the learner's language and course. {Name} and {lessons} are filled in for each learner.</p>
+</section>
+
+<section>
+  <div class="kicker">04 · What I'd do in the first 90 days</div>
+  <h2>Data shows where. Interviews show why. Tests prove the fix.</h2>
+  <div class="plan">
+    <div>
+      <div class="w">Weeks 1 to 4</div>
+      <h3>Map the drop-off</h3>
+      <p>Use product data to build the learner funnel below, split by client, language and course type, and find the biggest drop.</p>
+    </div>
+    <div>
+      <div class="w">Weeks 3 to 6</div>
+      <h3>Ask the quiet learners</h3>
+      <p>With Customer Success, interview 15 to 20 learners who stopped at that step. Reviews only show the people who stayed.</p>
+    </div>
+    <div>
+      <div class="w">Weeks 6 to 12</div>
+      <h3>Test, then roll out</h3>
+      <p>A/B test the messages for the weakest step first. Turn the winners into a playbook Customer Success can use with every client.</p>
+    </div>
+  </div>
+  <div class="funnel">
+    <table>
+      <thead><tr><th>Funnel step</th><th>What I'd measure</th><th>Message</th></tr></thead>
+      <tbody>
+        <tr><td>Invited to Speexx</td><td>Share who complete the level check</td><td>1</td></tr>
+        <tr><td>Level check done</td><td>Share who finish a first lesson within 7 days</td><td>2</td></tr>
+        <tr><td>First lesson done</td><td>Share who book a first live session within 14 days</td><td>2</td></tr>
+        <tr><td>Active in week two</td><td>Lessons completed per learner</td><td>3</td></tr>
+        <tr><td>Gone quiet</td><td>Share who return within 7 and 21 days</td><td>4, 5</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="about">
+    <div>
+      <div class="kicker">Why I made this</div>
+      <h2>Getting people to come back is the work I know best</h2>
+      <p class="lede" style="font-size:18px">I'm applying to Speexx for a product marketing role focused on learner engagement. I'm also a learner myself: I live in Munich and I'm working my way from B1 to B2 in German.</p>
+      <p class="contact"><a href="mailto:ss.ahmad95@gmail.com">ss.ahmad95@gmail.com</a> · <a href="https://sana-ahmad-portfolio.netlify.app/">Portfolio</a></p>
+    </div>
+    <ul class="proof">
+      <li><b>300+ A/B tests</b> on push, in-app and email copy at Combyne, an app with 1M+ monthly users. They lifted weekly user retention by 5%.</li>
+      <li><b>100+ user interviews</b> as UX Research Manager, feeding product decisions.</li>
+      <li><b>14,000+ readers</b> of the weekly Munich Post newsletter I write.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p><b>Sources.</b> Every quote is copied word for word from public reviews, read on 19 October 2026. Reviewer names are left out on purpose. Usage figures come from Speexx's own customer stories.</p>
+  <ul>
+    <li><a href="https://uk.trustpilot.com/review/www.speexx.com?page=5">Trustpilot</a> (212 reviews, 4.5/5; 65 read)</li>
+    <li><a href="https://www.capterra.co.nz/software/190739/speexx">Capterra</a> and <a href="https://www.softwareadvice.co.uk/software/261771/speexx">Software Advice</a> (123 reviews, 4.7/5; 10 read)</li>
+    <li><a href="https://www.g2.com/products/speexx">G2</a> (4.6/5; 1 review and 2 community posts read)</li>
+    <li><a href="https://www.speexx.com/customer-stories/volkswagen-group/">Volkswagen customer story</a> and <a href="https://www.speexx.com/customer-stories/">customer stories overview</a></li>
+  </ul>
+  <p>Independent work by Sana Ahmad. Not commissioned by, affiliated with or endorsed by Speexx.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var M=[
+    {when:"Invited, level check not done",title:"Take the pressure off step one",kind:"email",
+     subject:"Before your first lesson",
+     copy:"Before your first lesson, there's a level check. There are no wrong answers. It only tells us where to start you, so the lessons fit from day one.",
+     btn:"Start my level check",
+     why:"The level check is the very first thing learners do. If it feels like an exam, it's the first reason to put Speexx off.",
+     ev:'"The classification test in the beginning was not clear to me how to fill it out" (Software Advice)',
+     measure:"Share of invited learners who complete the level check."},
+    {when:"First week, no live session booked",title:"Get them to the best part sooner",kind:"push",
+     ptitle:"Ready for your first live session?",
+     copy:"Everyone's a little nervous. Pick a work topic.",
+     why:"Live sessions are among the most praised parts of Speexx, but some learners wait weeks before daring to join. Lowering that first hurdle gets people to the part they end up loving.",
+     ev:'"But I didn\'t dare to do it the first few weeks and started quite late." (Trustpilot)',
+     measure:"Share of new learners who book a first live session within 14 days."},
+    {when:"Week two, regular use",title:"Give every lesson a purpose",kind:"push",
+     ptitle:"A meeting coming up?",
+     copy:"Practice for it in English today.",
+     why:"Learners describe success as work moments, not scores. Tying the next lesson to a real upcoming moment gives them a reason to open it.",
+     ev:'"When I began, I could not follow a meeting in english or lead a workshop in english." (Trustpilot)',
+     measure:"Lessons completed in week two, compared with the control group."},
+    {when:"No activity for 7 days",title:"Make the comeback small",kind:"push",
+     ptitle:"Busy week, {Name}?",
+     copy:"One short exercise still counts.",
+     why:"Flexibility is one of the things learners praise most often. This reminds busy learners that flexibility includes small steps, not only full lessons.",
+     ev:'"it offers great flexibility, allowing you to study at any free moment." (Trustpilot)',
+     measure:"Share who return within 7 days of the message."},
+    {when:"No activity for 21 days",title:"Show what they've already banked",kind:"email",
+     subject:"You've already done the hard part",
+     copy:"You've already finished {lessons} lessons. Your next one is one tap away.",
+     btn:"Continue my course",
+     why:"Seeing the progress they've already made makes coming back feel smaller than starting again.",
+     ev:'"In just one year, I have gained that ability to speak, read, understand, and write English with confidence." (Trustpilot)',
+     measure:"Reactivation rate after 21 days of inactivity."}
+  ];
+  var steps=[].slice.call(document.querySelectorAll('.step.has')), cur=1;
+  var el=function(id){return document.getElementById(id)};
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function show(i){
+    cur=i; var m=M[i];
+    steps.forEach(function(s,j){s.setAttribute('aria-pressed',j===i?'true':'false')});
+    el('dWhen').textContent='Message '+(i+1)+' · '+(m.kind==='push'?'Push notification':'Email')+' · '+m.when;
+    el('dTitle').textContent=m.title;
+    el('dCopy').innerHTML=(m.kind==='push'?'<b>'+esc(m.ptitle)+'</b><br>':'<b>Subject: '+esc(m.subject)+'</b><br>')+esc(m.copy);
+    el('dWhy').textContent=m.why;
+    el('dEv').innerHTML='<blockquote>'+esc(m.ev)+'</blockquote>';
+    el('dMeasure').textContent=m.measure;
+    var s='<div class="clock">9:41</div>';
+    if(m.kind==='push'){
+      s+='<div class="notif"><div class="app"><span class="ic"></span>Speexx · now</div><div class="ttl">'+esc(m.ptitle)+'</div><div class="msg">'+esc(m.copy)+'</div></div>';
+    } else {
+      s+='<div class="mail"><div class="hd">From: Speexx<b>'+esc(m.subject)+'</b></div><div class="bd">'+esc(m.copy)+'<br><span class="btn">'+esc(m.btn)+'</span></div></div>';
+    }
+    el('screen').innerHTML=s;
+    el('prev').disabled=i===0; el('prev').style.opacity=i===0?.4:1;
+    el('next').textContent=i===M.length-1?'Back to the first':'Next message';
+  }
+  steps.forEach(function(s){s.addEventListener('click',function(){show(+s.dataset.i)})});
+  el('prev').addEventListener('click',function(){if(cur>0)show(cur-1)});
+  el('next').addEventListener('click',function(){show(cur<M.length-1?cur+1:0)});
+  show(1);
+})();
+</script>
+</body>
+</html>
